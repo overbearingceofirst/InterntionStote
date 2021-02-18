@@ -7,6 +7,7 @@
     <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
     <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
     <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://cdn.bootcss.com/prop-types/15.6.1/prop-types.js"></script>
 </head>
 <body>
     <div id="example"></div>
@@ -182,21 +183,21 @@
     // )
 
     //状态
-    class Clock extends React.Component {
-        constructor(props) { // es6专用写入参数
-            super(props); // react需要继承传入的参数，否则报错
-            this.state = {date: new Date()};
-        }
+    // class Clock extends React.Component {
+    //     constructor(props) { // es6专用写入参数
+    //         super(props); // react需要继承传入的参数，否则报错
+    //         this.state = {date: new Date()};
+    //     }
 
-        render() {
-            return (
-                <div>
-                    <h1>Hello, world!</h1>
-                    <h2>现在是 {this.state.date.toLocaleTimeString()}.</h2>
-                </div>
-            );
-        }
-    }
+    //     render() {
+    //         return (
+    //             <div>
+    //                 <h1>Hello, world!</h1>
+    //                 <h2>现在是 {this.state.date.toLocaleTimeString()}.</h2>
+    //             </div>
+    //         );
+    //     }
+    // }
 
     // ReactDOM.render(
     //     <Clock />,
@@ -205,9 +206,413 @@
 
 
     // 生命周期
+    // class Clock extends React.Component {
+    //     constructor(props){
+    //         super(props);
+    //         this.state = {data: new Date()}
+    //     }
+    //     componentDidMount(){ // 第一个执行
+    //         this.timerID = setInterval(
+    //             ()=> this.tick(),
+    //             1000
+    //         );
+    //     }
+    //     componentWillUNMOUNT() {
+    //         clearInterval(this.timerID)
+    //     }
+    //     tick(){
+    //         this.setState({ // 更新数据
+    //             data: new Date()
+    //         })
+    //     }
+    //     render() {
+    //         return (
+    //             <div>
+    //                 <h1>Hello,I want to sleep!</h1>
+    //                 <h2>现在是 {this.state.data.toLocaleTimeString()}</h2>
+    //             </div>
+    //         )
+    //     }
+    // }
+
+    // ReactDOM.render(
+    //     <Clock />,
+    //     document.getElementById('example')
+    // )
+
+
+    // 数据自顶向下流动
+    // function FormattedDate(props){
+    //     return <h2>现在是{ props.date.toLocaleTimeString()}</h2>
+    // }
+
+    // class Clock extends React.Component {
+    //     constructor(props) {
+    //         super(props);
+    //         this.state = {date: new Date()}
+    //     }
+    //     componentDidMount(){
+    //         this.timerID = setInterval(
+    //             ()=>this.tick(), 
+    //             1000
+    //         );
+    //     }
+
+    //     componentWillUnmount() {
+    //         clearInterval(this.timerID)
+    //     }
+
+    //     tick() {
+    //         console
+    //         this.setState({
+    //             date: new Date()
+    //         })
+    //     }
+
+    //     render(){
+    //         return (
+    //             <div>
+    //                 <h1>sleep!!!</h1>
+    //                 <FormattedDate date={this.state.date}/>
+    //             </div>
+    //         )
+    //     }
+    // }
+
+    // ReactDOM.render(
+    //     <Clock />,
+    //     document.getElementById("example")
+    // )
+
+    // 组件树
+    // function FormattedDate(props){
+    //     return <h2>现在是 {props.date.toLocaleTimeString()}</h2>
+    // }
+    // class Clock extends React.Component {
+    //     constructor(props){
+    //         super(props);
+    //         this.state = {date: new Date()}
+    //     }
+    //     componentDidMount() {
+    //         this.timerID = setInterval(
+    //             ()=>this.tick(),
+    //             1000
+    //         )
+    //     }
+    //     componentWillUnmount() {
+    //         clearInterval(this.timerID)
+    //     }
+    //     tick(){
+    //         this.setState({
+    //             date: new Date()
+    //         })
+    //     }
+    //     render(){
+    //         return(
+    //             <div>
+    //                 <h1>hahahahahahah</h1>
+    //                 <FormattedDate date={this.state.date} />
+    //             </div>
+    //         )
+    //     }
+    // }
+
+    // function App(){
+    //     return (
+    //         <div>
+    //             <Clock />
+    //             <Clock />
+    //             <Clock />
+    //         </div>
+    //     )
+    // }
+
+    // ReactDOM.render(
+    //     <App />,
+    //     document.getElementById("example")
+    // )
+
+    // 使用props
+    // function HelloMessage(props){
+    //     return <h1>Hello,{props.name}!</h1>
+    // }
+
+    // const elment = <HelloMessage name="XU" />
+
+    // ReactDOM.render(
+    //     elment,
+    //     document.getElementById("example")
+    // )
+
+    // 默认props
+    // class HelloMessage extends React.Component {
+    //     render() {
+    //         return (
+    //             <h1>Hello,{this.props.name}</h1>
+    //         )
+    //     }
+    // }
+
+    // HelloMessage.defaultProps = {
+    //     name: 'xu2'
+    // };
+
+    // const elment = <HelloMessage />
+
+    // ReactDOM.render(
+    //     elment,
+    //     document.getElementById('example')
+    // )
+
+    // // state和props的区别
+    // class WebSite extends React.Component {
+    //     constructor() {
+    //         super();
+    //         this.state = {
+    //             name: '菜鸟教程',
+    //             site: 'hahahahahahaah'
+    //         }
+    //     }
+    //     render() {
+    //         return (
+    //             <div>
+    //                 <Name name={this.state.name} />
+    //                 <Link site={this.state.site} />
+    //             </div>
+    //         )
+    //     }
+    // }
+
+    // class Name extends React.Component {
+    //     render () {
+    //         return (
+    //             <h1>{this.props.name}</h1>
+    //         )
+    //     }
+    // }
+
+    // class Link extends React.Component {
+    //     render () {
+    //         return (
+    //             <h2>{this.props.site}</h2>
+    //         )
+    //     }
+    // }
+
+
+    // ReactDOM.render(
+    //     <WebSite />,
+    //     document.getElementById('example')
+    // )
+
+    // props验证
+    // let title = '菜鸟哈哈哈'
+    // let title = 123
+    // 16.4版本
+    // class MyTitle extends React.Component {
+    //     render() {
+    //         return (
+    //             <h1>hello,{this.props.title}</h1>
+    //         )
+    //     }
+    // }
+    // MyTitle.propTypes = {
+    //     title: PropTypes.string
+    // }
+
+    // 15.4版本 ----- pass链接已经不支持这个版本
+    // let MyTitle = React.createClass({
+    //     propTypes: {
+    //         title: React.propTypes.string.isRequired,
+    //     },
+
+    //     render: function(){
+    //         return <h1>{this.props.title}</h1>
+    //     }
+    // });
+
+    // ReactDOM.render(
+    //     <MyTitle title={title} />,
+    //     document.getElementById('example')
+    // )
+
+
+    // 验证器说明：
+    // MyComponent.propTypes = {
+    //         // 可以声明 prop 为指定的 JS 基本数据类型，默认情况，这些数据是可选的
+    //         optionalArray: React.PropTypes.array,
+    //         optionalBool: React.PropTypes.bool,
+    //         optionalFunc: React.PropTypes.func,
+    //         optionalNumber: React.PropTypes.number,
+    //         optionalObject: React.PropTypes.object,
+    //         optionalString: React.PropTypes.string,
+        
+    //         // 可以被渲染的对象 numbers, strings, elements 或 array
+    //         optionalNode: React.PropTypes.node,
+        
+    //         //  React 元素
+    //         optionalElement: React.PropTypes.element,
+        
+    //         // 用 JS 的 instanceof 操作符声明 prop 为类的实例。
+    //         optionalMessage: React.PropTypes.instanceOf(Message),
+        
+    //         // 用 enum 来限制 prop 只接受指定的值。
+    //         optionalEnum: React.PropTypes.oneOf(['News', 'Photos']),
+        
+    //         // 可以是多个对象类型中的一个
+    //         optionalUnion: React.PropTypes.oneOfType([
+    //         React.PropTypes.string,
+    //         React.PropTypes.number,
+    //         React.PropTypes.instanceOf(Message)
+    //     ]),
+    
+    //         // 指定类型组成的数组
+    //         optionalArrayOf: React.PropTypes.arrayOf(React.PropTypes.number),
+        
+    //         // 指定类型的属性构成的对象
+    //         optionalObjectOf: React.PropTypes.objectOf(React.PropTypes.number),
+        
+    //         // 特定 shape 参数的对象
+    //         optionalObjectWithShape: React.PropTypes.shape({
+    //         color: React.PropTypes.string,
+    //         fontSize: React.PropTypes.number
+    //         }),
+        
+    //         // 任意类型加上 `isRequired` 来使 prop 不可空。
+    //         requiredFunc: React.PropTypes.func.isRequired,
+        
+    //         // 不可空的任意类型
+    //         requiredAny: React.PropTypes.any.isRequired,
+        
+    //         // 自定义验证器。如果验证失败需要返回一个 Error 对象。不要直接使用 `console.warn` 或抛异常，因为这样 `oneOfType` 会失效。
+    //         customProp: function(props, propName, componentName) {
+    //             if (!/matchme/.test(props[propName])) {
+    //                 return new Error('Validation failed!');
+    //             }
+    //         }
+    //     }
+    // }
+
+    // 事件处理
+    // 事件写法
+    // <button onClick={activateLasers}>
+    //     激活按钮
+    // </button>
+
+    // react写法
+    // function ACtionLink() {
+    //     function handleClick(e){
+    //         e.preventDefault();
+    //         console.log('链接被点击')
+    //     }
+
+    //     return (
+    //         <a href="#" onClick={handleClick}>
+    //             点我
+    //         </a>
+    //     )
+    // }
+
+    // ReactDOM.render(
+    //     <ACtionLink />,
+    //     document.getElementById("example")
+    // )
+    
+    // 在jsx中请慎重使用this指向
+    // class Toggle extends React.Component {
+    //     constructor(props){
+    //         super(props)
+    //         this.state = {isToggleOn: true};
+
+    //         // 这边绑定是必须的，这样‘this’才能在回调函数中使用
+    //         this.handleClick = this.handleClick.bind(this)
+    //     }
+    //     handleClick (){
+    //         this.setState(prevState => ({
+    //             isToggleOn: !prevState.isToggleOn
+    //         }))
+    //         console.log(this.state.isToggleOn)
+    //         // this.setState(prevState => ({prevState.isToggleOn})
+    //     }
+
+    //     render() {
+    //         return (
+    //             <button onClick={this.handleClick}>
+    //                 {this.state.isToggleOn ? 'ON' : 'OFF'}
+    //             </button>
+    //         )
+    //     }
+    // }
+
+    // ReactDOM.render(
+    //     <Toggle />,
+    //     document.getElementById('example')
+    // )
+
+    // this指向归宿
+    class LoggingButton  extends React.Component {
+        handleClick = () => {
+            console.log('this is',this)
+        }
+        render() {
+            return (
+                <button onClick={this.handleClick}>
+                    click me
+                </button>
+            ) 
+        }
+    }
+
+    // class LoggingButton extends React.Component {
+    //     handleClick() {
+    //         console.log('this is:', this);
+    //     }
+        
+    //     render() {
+    //         //  这个语法确保了 `this` 绑定在  handleClick 中
+    //         return (
+    //         <button onClick={(e) => this.handleClick(e)}>
+    //             Click me
+    //         </button>
+    //         );
+    //     }
+    // }
+
+    // ReactDOM.render(
+    //     <LoggingButton />,
+    //     document.getElementById('example')
+    // )
+
+    // bind传递方式
+    // class Popper extends React.Component{
+    //     constructor(){
+    //         super();
+    //         this.state = {name:'Hello world!'};
+    //     }
+        
+    //     preventPop(name, e){    //事件对象e要放在最后
+    //         e.preventDefault();
+    //         alert(name);
+    //     }
+        
+    //     render(){
+    //         return (
+    //             <div>
+    //                 <p>hello</p>
+    //                 {/* 通过 bind() 方法传递参数。 */}
+    //                 <a href="https://reactjs.org" onClick={this.preventPop.bind(this,this.state.name)}>Click</a>
+    //             </div>
+    //         );
+    //     }
+    // }
+
+
+    // 条件渲染
     
 
-
-
+    ReactDOM.render(
+        <Popper />,
+        document.getElementById('example')
+    )
 </script>
 </html>
