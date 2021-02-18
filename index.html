@@ -182,27 +182,30 @@
     // )
 
     //状态
-    // class Clock extends React.Component {
-    //     constructor(props) { // es6专用写入参数
-    //         super(props); // react需要继承传入的参数，否则报错
-    //         this.state = {date: new Date()};
-    //     }
+    class Clock extends React.Component {
+        constructor(props) { // es6专用写入参数
+            super(props); // react需要继承传入的参数，否则报错
+            this.state = {date: new Date()};
+        }
 
-    //     render() {
-    //         return (
-    //             <div>
-    //                 <h1>Hello, world!</h1>
-    //                 <h2>现在是 {this.state.date.toLocaleTimeString()}.</h2>
-    //             </div>
-    //         );
-    //     }
-    // }
+        render() {
+            return (
+                <div>
+                    <h1>Hello, world!</h1>
+                    <h2>现在是 {this.state.date.toLocaleTimeString()}.</h2>
+                </div>
+            );
+        }
+    }
 
     // ReactDOM.render(
     //     <Clock />,
     //     document.getElementById('example')
     // );
 
+
+    // 生命周期
+    
 
 
 
