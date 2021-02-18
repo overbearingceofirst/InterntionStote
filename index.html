@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素渲染</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+<script type="text/babel">
+    // 例子一：
+    // const element =<h1>Hello, world!</h1>;
+    // ReactDOM.render(
+    //     element,
+    //     document.getElementById("example")
+    // )
+
+    // 例子二： 
+    // function tick(){
+    //     const element = (
+    //         <div>
+    //             <h1>hello,world</h1>
+    //             <h2>现在是 {new Date().toLocaleTimeString()}</h2>
+    //         </div>
+    //     );
+    //     ReactDOM.render(
+    //         element,
+    //         document.getElementById("example")
+    //     );
+    // }
+    // setInterval(tick, 1000);
+    
+    // 例子三：
+    // function Clock(props){
+    //     return (
+    //         <div>
+    //             <h1>hello,world!</h1>
+    //             <h2>现在是 {props.date.toLocaleTimeString()}.</h2>
+    //         </div>
+    //     )
+    // }
+
+    // function tick() {
+    //     ReactDOM.render(
+    //         <Clock date={new Date()} />,
+    //         document.getElementById('example')
+    //     )
+    // }
+
+    // setInterval(tick, 1000);
+
+    // 例子四：
+    // class Clock extends React.Component {
+    //     render() {
+    //         return (
+    //             <div>
+    //                 <h1>hello,world!</h1>
+    //                 <h2>现在是 {this.props.date.toLocaleTimeString()}.</h2>
+    //             </div>
+    //         )
+    //     }
+    // }
+    // function tick() {
+    //     ReactDOM.render(
+    //         <Clock date={new Date()} />,
+    //         document.getElementById("example")
+    //     )
+    // }
+    // setInterval(tick, 1000);
+
+    // 例子五：------------------实例中的 p 元素添加了自定义属性 data-myattribute，添加自定义属性需要使用 data- 前缀。
+    // ReactDOM.render(
+    //     <div>
+    //         <h1>菜鸟教程</h1>
+    //         <h2>欢迎学习React</h2>
+    //         <p data-myattribute = 'somevalue'>这是一个很不错的javascript库</p>
+    //     </div>,
+    //     document.getElementById("example")
+    // )
+
+    // 例子六：-----------------独立文件-----请查看index2.html
+    // React.render(
+    //     <h1>hello,world!</h1>,
+    //     document.getElementById("example")
+    // )
+
+    // 例子七：------------------
+    // ReactDOM.render(
+    //     <div>
+    //         <h1>{1+1}</h1>
+    //     </div>,
+    //     document.getElementById("example")
+    // )
+
+    // 例子八：jsx里卖弄不可以使用if else语句
+    // let i = 2
+    // ReactDOM.render(
+    //     <div>
+    //         <h1>{ i === 1 ? 'True!':'False!'}</h1>
+    //     </div>,
+    //     document.getElementById("example")
+    // )
+
+    // 例子九：我们可以使用 camelCase 语法来设置内联样式. React 会在指定元素数字后自动添加 px 。以下实例演示了为 h1 元素添加 myStyle 内联样式：
+    // let myStyle = {
+    //     fontSize: 100,
+    //     color: '#FF0000'
+    // }
+    // ReactDOM.render(
+    //     <h1 style = {myStyle}>菜鸟教程</h1>,
+    //     document.getElementById("example")
+    // )
+
+    // 例子十：注释写法
+    // ReactDOM.render(
+    //     <div>
+    //         <h1>菜鸟渣渣</h1>
+    //         { /*zhazha*/ }
+    //     </div>,
+    //     document.getElementById("example")
+    // )
+
+    // JSX准许模版中插入数组，数组会自动展开所有成员
+    // let arr = [
+    //     <h1>菜鸟渣渣</h1>,
+    //     <h2>学的不仅是技术，更是渣渣</h2>,
+    // ]
+
+    // ReactDOM.render(
+    //     <div>{arr}</div>,
+    //     document.getElementById("example")
+    // )
+
+    // react组件
+    // function HelloMessage(props) {
+    //     return <h1>hello,world!</h1>
+    // }
+    // const elment = <HelloMessage />
+    
+    // ReactDOM.render(
+    //     elment,
+    //     document.getElementById("example")
+    // )
+
+    // 你也可以使用es6来定义组件
+    // class Welcome extends React.Component {
+    //     render() {
+    //         return <h1>hello,world3</h1>
+    //     }
+    // }
+    // ReactDOM.render(
+    //     <Welcome />,
+    //     document.getElementById("example")
+    // )
+    
+    // 复合组件
+    // function Name(props){
+    //     return <h1>网站名称：{props.name}</h1>
+    // }
+    // function Url(props){
+    //     return <h1>网站地址：{props.url}</h1>
+    // }
+    // function Nickname(props){
+    //     return <h1>网站小名：{props.nickname}</h1>
+    // }
+    // function App(){
+    //     return (
+    //         <div>
+    //             <Name name="财年渣渣" />
+    //             <Url url="http:www.baidu.com" />
+    //             <Nickname nickname="hahahahah" />
+    //         </div>
+    //     )
+    // }
+    // ReactDOM.render(
+    //     <App />,
+    //     document.getElementById("example")
+    // )
+
+    //状态
+    // class Clock extends React.Component {
+    //     constructor(props) { // es6专用写入参数
+    //         super(props); // react需要继承传入的参数，否则报错
+    //         this.state = {date: new Date()};
+    //     }
+
+    //     render() {
+    //         return (
+    //             <div>
+    //                 <h1>Hello, world!</h1>
+    //                 <h2>现在是 {this.state.date.toLocaleTimeString()}.</h2>
+    //             </div>
+    //         );
+    //     }
+    // }
+
+    // ReactDOM.render(
+    //     <Clock />,
+    //     document.getElementById('example')
+    // );
+
+
+
+
+</script>
+</html>
